@@ -8,7 +8,6 @@ import numpy as np
 
 # Step 1 - numerical_gradient
 def numerical_gradient(f, x, eps=1e-5):
-    # TODO: Estimate the gradient of scalar f w.r.t. array x via central finite differences
     
     
     res = np.zeros_like(x)
@@ -22,8 +21,12 @@ def numerical_gradient(f, x, eps=1e-5):
 
     return res
 
-# Step 2 - gradient_check (not yet solved)
-# TODO: implement
+# Step 2 - gradient_check
+def gradient_check(analytic_grad, numeric_grad, tol=1e-5):
+    
+    error = np.abs(analytic_grad-numeric_grad)/(np.maximum(np.maximum(analytic_grad,numeric_grad),tol))
+
+    return np.max(error)
 
 # Step 3 - make_dense (not yet solved)
 # TODO: implement
